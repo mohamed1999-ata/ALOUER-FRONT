@@ -1,0 +1,204 @@
+.profil{
+    position : absolute ;
+    top : 0% ;
+    right: 40%;
+}
+
+body {
+ 
+    background: #BA68C8 ;
+    
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: #BA68C8;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+.profil-info{
+    font-size : 18px ;
+   
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#profil-info-1{
+    font-size : 16px ;
+ 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#profil-info{
+    font-size : 14px ;
+    color : rgba(0, 0, 0, 0.774) ;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.mbr{
+    font-size : 14px;
+}
+
+/* partie annonce */
+
+
+
+
+
+  h1, h2, h3 {
+    font-family: Raleway, Helvetica, sans-serif;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 0;
+  
+  }
+  .padded {
+    padding: 50px 0;
+  }
+  .wrapper-grey {
+    background: #FFF;
+  }
+  .avatar {
+    width: 20px;
+    border-radius: 50%;
+  }
+  .avatar-bordered {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: white 1px solid;
+  }
+  .avatar-large {
+    width: 50px;
+  }
+   .banner {
+    color: white;
+    text-align: center;
+    height: 100vh;
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+  .banner p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 50px;
+  } 
+  
+  .card {
+    height: 250px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    color: white;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .card-user {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 49px;
+    height: 49px;
+  }
+  .card-category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .card-description {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color : transparent ;
+  }
+  
+  .card-description h2 {
+    font-size: 22px;
+  }
+  .card-description p {
+    font-size: 20px;
+    font-family:  'Arial Narrow Bold', sans-serif;
+    border: 3px solid #2eca6a;
+    border-radius: 14%;
+  }
+  .card-description p:hover {
+    font-size: 20px;
+    font-family:  'Arial Narrow Bold', sans-serif;
+   background-color:  #2eca6a;
+    border-radius: 30%;
+  }
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index:2;
+    background: black;
+    opacity: 0;
+  }
+  .card-link:hover{
+    opacity: 0.1;
+  }
+  .features img {
+    width: 100px;
+  }
+  .features h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .features p {
+    font-size: 15px;
+    font-weight: lighter;
+   
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+   
+  }
+
+
+  .annoceProfil{
+      position :relative  ;
+      top : 55%
+
+  }
+  
+  
+  

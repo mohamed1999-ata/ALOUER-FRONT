@@ -1,0 +1,46 @@
+
+<div class="wrapper padded">
+    <div class="container">
+      <h1 class="text-center">Découvrez tous les logements disponibles</h1>
+    
+      
+
+<div class="grid" >
+    <div *ngFor="let annonce of annonces | paginate: { itemsPerPage: 9,
+      currentPage: page,
+      totalItems :totalLength
+       }" >
+        <div  >
+       
+                   <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://localhost:5000/annonce/{{annonce.annonceImage[0]}}');">
+              <div class="card-category"> <span class="fa fa-map-marker"></span>   {{annonce.logement.ville}}</div>
+               <div class="date-creation">
+                 {{annonce?.createdAt | date:' d MMMM y '}}
+               </div>
+              <div class="card-description">
+                <ul>
+                    <li><span class="fa fa-room"></span> {{annonce?.logement.nombre_de_chambre}} Chambres</li>
+                    <li><span class="fa fa-bed"></span> {{annonce?.logement. nombre_de_lits}} Lits
+                    </li>
+                    <li><span class="fa fa-bath"></span> {{annonce?.logement.salle_de_bain}} salle de bain</li>
+                </ul>
+                
+                <p >{{annonce?.prix }} DT/nuit</p>
+              </div>
+              <img class="card-user avatar avatar-large" src="http://localhost:5000/user/{{annonce.propritaire.ProfilImage}}">
+              
+              <a class="card-link" routerLink="annonce/{{annonce._id}}" ></a>
+            </div>
+  
+         
+          </div>
+        </div>
+       </div>
+      </div>
+      <pagination-controls align="center"   (pageChange)="pageChangeEvent($event)" ></pagination-controls>
+
+    </div>
+
+
+
+

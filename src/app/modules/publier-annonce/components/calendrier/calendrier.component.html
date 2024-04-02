@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <button
+        class="btn btn-primary"
+        (click)="decrement()"
+        [disabled]="prevBtnDisabled"
+      >
+        Précédent
+      </button>
+      <button class="btn btn-outline-secondary" (click)="today()">
+        Aujourd'hui
+      </button>
+      <button
+        class="btn btn-primary"
+        (click)="increment()"
+        [disabled]="nextBtnDisabled"
+      >
+        Suivant
+      </button>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate: view + "ViewTitle":locale }}</h3>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-2"></div>
+
+  <div class="col-md-8">
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view
+        *ngSwitchCase="'month'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [locale]="locale"
+        (dayClicked)="dayClicked($event.day)"
+        (beforeViewRender)="beforeMonthViewRender($event)"
+      >
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="viewDate"
+        [events]="events"
+      >
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="viewDate"
+        [events]="events"
+      >
+      </mwl-calendar-day-view>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalContent let-close="close">
+  <div class="modal-header">
+    <h5 style="font-size:1.2rem ;  font-weight:600 ; margin-left:33%;">Ajouter la disponibilité</h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="agendaForm" (ngSubmit)="onSubmit()">
+      
+      <div style="display: flex;  justify-content : space-around ;">
+         
+        <div class="col-md-4">
+          <label for="depart">Depart</label><br />
+          <input
+            type="date"
+            min="{{ dateMin }}"
+            formControlName="start"
+            class="form-control"
+            id="depart"
+          />
+        </div>
+        <div class="col-md-4" >
+          <label for="arriver">Arriver</label><br />
+          <input
+            type="date"
+            class="form-control"
+            formControlName="end"
+            min="{{ dateMin }}"
+            id="arriver"
+          />
+        </div>
+
+      </div>
+    
+      <div class="col-md-3" style="margin-top : 20px ; margin-left :8%;">
+        <button type="submit" class="btn btn-primary" (click)="close()">
+          confirmer
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,123 @@
+
+<body>
+  
+<div class="center">
+  <form [formGroup]="logementForm" (ngSubmit)="onSubmit()" >
+  <div class="container  justify-content-center">
+  
+
+     <div  class="title">
+       <h1>Type de Logement </h1>
+     </div>
+    <div class="radio_btn">
+      <div class="form-row">
+        <div class="form-group col">
+          <select
+            id="s"
+            formControlName="type_logement"
+            class="select-dropdown"
+            [ngClass]="{
+              'is-invalid': submitted && f.type_logement.errors
+            }"
+          >
+            <option  selected="Apartement" value="Apartement">Apartement</option>
+            <option value="Maision">Maision</option>
+
+
+            <option data-name="Maison ou chambre d'hôtes">
+              Maison ou chambre d'hôtes
+            </option>
+
+
+            <option data-name="Bungalow">Bungalow</option>
+            <option data-name="Ferme">Ferme</option>
+            <option data-name="Villa">Villa</option>
+          </select>
+          <div
+            *ngIf="submitted && f.type_logement.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.type_logement.errors.required">
+              Longement is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      
+    </div>
+    <div class="title"  >
+      <h1>Type de chambre </h1>
+    </div>
+    <div class="radio_btn1">
+      <input type="radio"  id="Chambre_1" value="Chambre privée"   formControlName="type_chambre" />
+      <label for="Chambre_1"> <i class="bi bi-door-open" style="font-size: 25px"></i>
+       Chambre privée </label>
+       
+      <input type="radio"  id="Chambre_2" value=" Chambre partagée"  formControlName="type_chambre" />
+      <label for="Chambre_2"> <i class="bi bi-controller" style="font-size: 25px"></i>
+       Chambre partagée</label>
+       
+        <input type="radio"  id="Chambre_3" value="Longement entier"  formControlName="type_chambre" />
+      <label for="Chambre_3">  <i class="bi bi-house" style="font-size: 25px"></i>
+       Longement entier </label>
+    </div>
+
+
+
+
+         
+            
+          
+    
+</div>
+<div class="title"  >
+  <h1>  Capacite d'accueil</h1>
+</div>
+<div class="radio_btn1">
+  <div class="form-group">
+    <select
+      id="s"
+      formControlName="capacite"
+      [ngClass]="{ 'is-invalid': submitted && f.capacite.errors }"
+    >
+      <option value="1" selected> 1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="8+">8+</option>
+     
+    </select>
+
+ 
+  </div>
+  <br />
+
+  
+  
+   
+
+
+  
+</div>
+
+
+
+<div class="radio_btn">
+  <div>
+    <button class="btn btn-primary mr-1" type="submit" [disabled]="!logementForm.valid">Envoyer</button>
+    <button class="btn btn-secondary" type="reset" (click)="onReset()">
+      Annuler
+    </button>  </div>
+</div>
+
+</form>
+</div>
+
+</body>
+
+

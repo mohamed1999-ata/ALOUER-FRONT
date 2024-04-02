@@ -1,0 +1,476 @@
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""
+/>
+
+<script
+  src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""
+></script>
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+/>
+
+<!-- ======= Intro Single ======= -->
+<section class="intro-single">
+  <div class="container">
+    <!-- ======= Property Single ======= -->
+    <div class="row justify-content-start">
+      <div class="logment-title">
+        <h2>{{ annonce?.titre }}</h2>
+      </div>
+    </div>
+    <div class="propriataire">
+      <a href="user/profil/{{ annonce?.propritaire._id }}">
+        <img
+          class="propriataire-image"
+          src="http://localhost:5000/user/{{
+            annonce?.propritaire.ProfilImage
+          }}"
+        />
+      </a>
+    </div>
+    <br />
+    <p class="prop-nom">
+      {{ annonce?.propritaire.firstName }} {{ annonce?.propritaire.lastName }}
+    </p>
+  </div>
+  <section class="property-single nav-arrow-b">
+    <div class="container">
+      <div class="row justify-content-start">
+        <div class="col-lg-7">
+          <!-- start slide-->
+
+          <header>
+            <div
+              id="carouselExampleCaptions"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="3"
+                  aria-label="Slide "
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div
+                  class="carousel-item active"
+                  style="background-image: url('http://localhost:5000/annonce/{{
+                    annonce?.annonceImage[0]
+                  }}')">
+                  <div class="carousel-caption"></div>
+                </div>
+                <div
+                  class="carousel-item"
+                  style="background-image: url('http://localhost:5000/annonce/{{
+                    annonce?.annonceImage[1]
+                  }}')"
+                >
+                  <div class="carousel-caption"></div>
+                </div>
+                <div
+                  class="carousel-item"
+                  style="background-image: url('http://localhost:5000/annonce/{{
+                    annonce?.annonceImage[2]
+                  }}')"
+                >
+                  <div class="carousel-caption"></div>
+                </div>
+                <div
+                  class="carousel-item"
+                  style="background-image: url('http://localhost:5000/annonce/{{
+                    annonce?.annonceImage[3]
+                  }}')">
+                  <div class="carousel-caption"></div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </header>
+
+          <hr />
+
+          <!-- end slide-->
+        </div>
+      </div>
+
+      <div class="reservation-form">
+        <div class="col-md-20">
+          <div class="card mb-10">
+            <div
+              class="card-header py-6"
+              style="background-color: rgb(44, 41, 41)"
+            >
+              <h2 class="mb-0">Prix :{{ annonce?.prix }} DT / nuit</h2>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <form
+                  class="form-reservation"
+                  [formGroup]="MyForm"
+                  (ngSubmit)="funsubmit(MyForm)"
+                >
+                  <div style="display: inline">
+                    <div class="date-piker">
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="fill"
+                      >
+                        <mat-label>Depart</mat-label>
+                        <input
+                          matInput
+                          [matDatepickerFilter]="myHolidayFilter"
+                          [min]="dateMin"
+                          formControlName="depart"
+                          [matDatepicker]="picker"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      <br />
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="fill"
+                      >
+                        <mat-label>Arriver</mat-label>
+                        <input
+                          matInput
+                          [matDatepickerFilter]="myHolidayFilter"
+                          [min]="dateMin"
+                          (change)="funsubmit($event)"
+                          formControlName="arriver"
+                          [matDatepicker]="picker1"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker1"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field>
+
+                      <br />
+                    </div>
+
+                    <!-- Select with Floating Label -->
+                    <div
+                      class="form-group "
+                    >
+                      <label for="propeller-select" style=" margin-left:10px;" >le nombre d'invite</label>
+                      <select
+                        id="propeller-select"
+                        class="form-control"
+                        formControlName="nbInvite"
+                        (change)="funsubmit($event)"
+                        style="width:240px; height: 45px; margin-left:10px;"
+                      >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                      </select>
+                    </div>
+                    <div></div>
+                  </div>
+                  <table *ngIf="prixfinal">
+                    <tr>
+                      <td><p>prix final :</p></td>
+                      <td></td>
+                      <td>
+                        <p>{{ prixfinal }} DT</p>
+                      </td>
+                    </tr>
+                  </table>
+                  <span *ngIf="message" class="message-reservation">
+                    {{ message }}
+                  </span>
+                  <p></p>
+                  <button
+                    class="btn btn-primary"
+                    type="submit"
+                    (click)="reserver()"
+                    style="width:240px; "
+                  >
+                    Reserver
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row justify-content-between">
+            <div class="col-md-5 col-lg-4">
+              <div class="property-price d-flex justify-content-center foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <h2>Prix :</h2>
+                  </div>
+                  <div class="card-title-c align-self-center">
+                    <h2 class="title">
+                      {{ annonce?.prix }} <span>DT / nuit</span>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div class="property-summary">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="title-box-d section-t4">
+                      <h3 class="title-d">Le logement</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-list">
+                  <ul class="list">
+                    <li class="d-flex justify-content-between">
+                      <strong>adresse:</strong>
+                      <span
+                        >{{ annonce?.logement.adress }}
+                        <i class="fa fa-map-marker"></i
+                      ></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Type de Logement:</strong>
+                      <span
+                        >{{ annonce?.logement.type }} <i class="fa fa-home"></i>
+                      </span>
+                    </li>
+
+                    <li class="d-flex justify-content-between">
+                      <strong>Nombre de chambre:</strong>
+                      <span
+                        >{{ annonce?.logement.nombre_de_chambre }}
+                        <i class="fa fa-bed"></i
+                      ></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong> salle de bain:</strong>
+                      <span
+                        >{{ annonce?.logement.salle_de_bain
+                        }}<i class="fa fa-bath"></i
+                      ></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Capacite d'acceille:</strong>
+                      <span
+                        >{{ annonce?.logement.capacite }}
+                        <mat-icon>supervised_user_circle</mat-icon>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-7 section-md-t3">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="title-box-d">
+                    <h3 class="title-d">A propos de cette annonce</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="property-description">
+                <p class="description color-text-a">
+                  {{ annonce?.descreption }}
+                </p>
+                <p class="description color-text-a no-margin"></p>
+              </div>
+              <div class="equipement">
+                <div class="equipement-de-base">
+                  <h1>Equipement de base</h1>
+                  <div class="titleB"></div>
+                  <div>
+                    <ul
+                      class=""
+                      *ngFor="
+                        let equipement of annonce?.logement.equipement
+                          .equipement_de_base
+                      "
+                    >
+                      <li>{{ equipement }} <span></span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="commodite">
+                  <h1>commodité additionnelle</h1>
+                  <div class="titleB"></div>
+                  <div class="comidite">
+                    <ul
+                      class=""
+                      *ngFor="
+                        let equipement of annonce?.logement.equipement
+                          .Commodite_additionnelle
+                      "
+                    >
+                      <li>{{ equipement }} <span></span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="dispo">
+                  <h1>Disponibilité</h1>
+                  <div class="titleB"></div>
+                  <ul class="">
+                    <li>Séjour minimum: 2</li>
+                    <li>de {{ depart | date: "dd/MM/yyyy" }} - {{ arriver | date: "dd/MM/yyyy" }} </li>
+                    <li>
+              
+                   <div style="display: none ;">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Choose a date</mat-label>
+                      <input matInput [matDatepicker]="picker" [matDatepickerFilter]="myHolidayFilter">
+                      <mat-hint>MM/DD/YYYY</mat-hint>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                   </div>
+                  
+                  <button class="btn btn-primary" mat-raised-button (click)="picker.open()">Afficher le calendrier</button>
+                  
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<div
+class="modal"
+id="staticBackdrop"
+data-bs-backdrop="static"
+data-bs-keyboard="false"
+tabindex="-1"
+aria-labelledby="staticBackdropLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog ">
+  <div class="modal-content">
+    <div class="modal-body">
+   
+        <mat-calendar >
+
+        </mat-calendar>
+  
+    </div>
+    <div class="modal-footer">
+     
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+      >
+        annuler
+      </button>
+    </div>
+  </div>
+</div>
+</div>

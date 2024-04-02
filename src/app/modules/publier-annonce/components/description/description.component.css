@@ -1,0 +1,14 @@
+.center{
+    position : absolute ; 
+    top : 25% ;
+    left: 17%;
+  }
+  form button {
+   position: absolute;
+   margin : 15px; 
+   right: 10%;
+  }
+  form label{
+    font-size : 17px ;
+    
+}

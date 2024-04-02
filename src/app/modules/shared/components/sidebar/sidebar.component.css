@@ -1,0 +1,52 @@
+@media only screen and (max-width: 1024px) {
+  .mat-drawer-content {
+    display: block;
+  }
+}
+.mat-drawer-content {
+  display: none;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.center {
+  top: 10px;
+}
+
+mat-list-item {
+  color: red;
+  letter-spacing: 5px;
+}
+.titre {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.sidebarTitle {
+  text-align: center;
+  background-color: #f5f5f5;
+  font-size: 15px;
+}
+.routeTitle i {
+  margin: 1px;
+}
+
+.active-Link {
+  background-color: rgb(163, 159, 159);
+  border-radius: 5px;
+}

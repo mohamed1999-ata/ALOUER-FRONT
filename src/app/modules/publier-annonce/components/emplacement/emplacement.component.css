@@ -1,0 +1,30 @@
+.center{
+  position : absolute ; 
+  top : 25% ;
+  left: 17%;
+}
+form button {
+ position: absolute;
+ margin : 15px; 
+ right: 10%;
+}
+form label {
+  font-size : 17px;
+}
+
+.address { 
+  cursor:pointer;
+  font-size : 15px;
+ }
+.address:hover {
+   color:#AA0000;
+   text-decoration:underline;
+   }
+  
+
+   #map {
+    width:100%;
+    height:50%;
+    padding:0;
+    margin:0; 
+   }

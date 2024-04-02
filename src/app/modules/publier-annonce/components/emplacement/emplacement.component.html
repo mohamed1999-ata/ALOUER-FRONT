@@ -1,0 +1,49 @@
+
+<div class="center">
+  <div class="container-md">
+    <form class="row g-3" [formGroup]="emplacementForm"  (ngSubmit)="onSubmit()">
+     
+      <div class="col-md-4">
+        <label for="inputAddress" class="form-label">gouvernorat</label>
+        <input type="text" class="form-control" id="inputAddress"  formControlName="gouvernorat">
+      </div>
+      <div class="col-md-4">
+        <label for="inputAddress2" class="form-label">délégation</label>
+        <input type="text" class="form-control" id="inputAddress2"  formControlName="ville" >
+      </div>
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label" >adress</label>
+        <input type="text" class="form-control" id="inputCity" formControlName="adress">
+      </div>
+     
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">CodePostal</label>
+        <input type="text" class="form-control" id="inputZip" formControlName="codePostal">
+      </div>
+     
+      <div >
+        <button type="submit" class="btn btn-primary">suivant</button>
+      </div>
+    </form>
+  </div>
+  
+</div>
+
+
+<div *ngIf="result" style="position: absolute; let:15%; top :55%">
+    <div *ngFor="let adress of result ;let i=index;">
+     <div class="address"  (click)="saveCoordinate(adress[i].lon,adress[i].lat)">
+      {{adress[i]?.display_name}} 
+
+     </div>
+    
+
+
+    </div>
+   
+
+</div>
+<div *ngIf="message" style="position: absolute; left:15%; top :55%">
+  {{message}}
+</div>
+

@@ -1,0 +1,265 @@
+* {
+  box-sizing:border-box;
+  
+}
+
+@media(width : 994px){
+
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+ 
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 23px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+.carousel-item {
+  height: 60vh;
+  min-height: 150px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.reservation-form{
+  width: 300px;
+  height: auto;
+  right: 35px;
+  top: 250px ;
+  justify-content: end;
+  position: absolute;
+}
+
+.reservation-form button{
+  width: 100%;
+  height: 10%;
+  background-color: #2eca6a;;
+  margin-left : 5px ;
+  margin-right : 5px ;
+  margin:  10px;
+  bottom : 10%;
+
+}
+.title-box-d .title-d {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.reservation-form button:hover{
+  background-color: green;
+
+}
+.reservation-form  h2{
+  color: blanchedalmond
+}
+.reservation-form  input{
+ 
+  align-items : center ;
+}
+.reservation-form p {
+  margin: 13px;
+  font-size : 22px ; 
+  font-family :'Times New Roman', Times, serif ; 
+
+}
+.logment-title {
+  display: flex;
+  top : 0px
+
+}
+.equipement{
+  display: flex;
+  justify-content : space-between;
+  
+}
+.equipement .equipement-de-base h1{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.equipement .commodite h1{
+  font-size: 18px;
+  font-weight: bold;
+}
+.equipement .dispo h1{
+  font-size: 18px;
+  font-weight: bold;
+}
+.titleB{
+  content: "";
+  position: relative;
+  width: 70px;
+  height: 4px;
+  background-color: #2eca6a;
+  bottom: 20px;
+  left: 0;
+}
+
+.modal-body{
+  width : 400px;
+  height : 400px;
+  
+}
+
+.equipement-d{
+  display: block;
+  
+}
+.title-box {
+ align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.title-box .title{
+  font-weight: bold;
+  font-size: 1rem;
+}
+.logment-title h2{
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 15px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.propriataire{
+position: absolute;
+right : 10%;
+top : 20%;
+}
+.propriataire-image{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.prop-nom  {
+  text-align : center ;
+  font-size : 15px ;
+  position: absolute;
+  right : 7%;
+  top : 30%;
+ 
+}
+
+.map-container {
+  position: absolute;
+  top: 1050px;
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 15%;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+.message-reservation{
+  color : rgb(214, 71, 71);
+  position : relative ;
+  top: 15px;
+  left:15px;
+  margin : 15px;
+  font-size: 14px;
+
+}
+
+
+
+
+.date-piker{
+  margin :10px;
+  margin-top: 10px;
+  
+}

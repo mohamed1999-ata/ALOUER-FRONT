@@ -1,0 +1,84 @@
+<div class="center">
+   
+     <div class="contact-titre">
+          <h1>communiquer avec {{annonce?.propritaire.firstName}} </h1>
+           <div>
+                <p>Quelques conseils utiles sur ce qu'il faut écrire:</p>
+                <ul>
+                     <li><p>Qu'elle est la nature de votre séjour ? Qui vous accompagne ?</p></li>
+                     <li><p>Arrangez vous concernant votre arrivée et la remise des clés</p></li>
+                     <li><p>Demandez des recommandations dans le quartier</p></li>
+                </ul>
+           </div>
+           <br>
+           <br>
+          <div>
+               <div class="propritaire">
+
+                    <label for="smesage"> 
+                         <a href="user/profil/{{annonce?.propritaire._id}}"> 
+                              <img class="propritaire-image" src="http://localhost:5000/user/{{annonce?.propritaire.ProfilImage}}">
+                        </a>
+                  </label>
+                    <div class="container-msg darker">
+                        
+                         <p>Bienvenue cher invité! 
+                              je suis ouvert à vos questions et serais heureux <br>de vous accueillir dans mon logement !
+                         </p>
+                       </div>
+                      
+               </div>
+               <div class="locataire">
+                    <label for="message"> 
+                         <a href="user/profil/{{annonce?.propritaire._id}}"> 
+                              <img class="profil-image" src="http://localhost:5000/user/{{currentUser?.user.ProfilImage}}">
+                        </a>
+                  </label>
+                         <div class="container-msg darker">
+                              <span>
+                                   salut <strong>{{annonce?.propritaire.firstName}} </strong>
+                                   a propos de votre annonce 
+                                  <strong>{{annonce?.titre}}</strong>  à <strong> {{annonce?.logement.ville}}</strong><br> 
+                                    je demande de réserver ce logement de <strong>{{reservationInfo?.depart | date: "dd/MM/yyyy" }}</strong><br>
+                                   à <strong>{{reservationInfo?.arriver | date: "dd/MM/yyyy" }}</strong> ,
+                                   pour  <strong>{{reservationInfo?.nbInvite}}</strong> personne  
+                              </span>
+                            </div>
+                            <div class="btn-confirmer">
+                              <button class="btn btn-primary" (click)="sendMessage()" >confirmer</button>
+                            </div>
+
+                    </div>
+                   
+              
+          </div>
+
+     </div>
+     <div class="annonce-info">
+          <div class="col-md-4">
+                      <div class="agent-avatar-box">
+                        <img src="http://localhost:5000/annonce/{{annonce?.annonceImage[0]}}" style="height:300px ; width:400px" >
+                      </div>
+                    </div>
+              
+           <div>
+                <h1>{{annonce?.titre}}</h1>
+           </div>
+           <hr>
+           <div>
+             <p> a {{annonce?.logement.adress}} , {{annonce?.logement.ville}}  </p>
+           </div>
+         <hr>
+         <div>
+              <p>{{annonce?.logement.type}} pour {{reservationInfo?.nbInvite}} invité</p><br>
+             <p> <span>{{reservationInfo?.depart | date: "dd/MM/yyyy" }}</span> a <span>{{reservationInfo?.arriver | date: "dd/MM/yyyy" }}</span></p>
+         </div>
+         <hr>
+         <div>
+              <p><span>total:</span></p>  <h1 class="reservation-prix">{{reservationInfo?.prixfinal}} TDN</h1>
+         </div>
+       
+</div>
+        
+</div>
+    

@@ -1,0 +1,13 @@
+
+
+.label-ville{
+    position : absolute ;
+    align-items: center;
+    top: 10px;
+    left:10px;
+    font-size: 25px;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+
+}

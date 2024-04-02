@@ -1,0 +1,334 @@
+
+
+body {
+ 
+    font-family: Open-sans, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: Raleway, Helvetica, sans-serif;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 0;
+  
+  }
+  .padded {
+    padding: 100px 0;
+  }
+  
+  .avatar {
+    width: 20px;
+    border-radius: 50%;
+  }
+  .avatar-bordered {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: white 1px solid;
+  }
+  .avatar-large {
+    width: 50px;
+  }
+   .banner {
+    color: white;
+    text-align: center;
+    height: 100vh;
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+  .banner p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 50px;
+  } 
+  
+  .card {
+    height: 250px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    color: white;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .card-user {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 49px;
+    height: 49px;
+  }
+  .card-category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .card-description {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color : transparent ;
+  }
+  
+  .card-description h2 {
+    font-size: 22px;
+  }
+  .card-description p {
+    font-size: 20px;
+    font-family:  'Arial Narrow Bold', sans-serif;
+    border: 3px solid #2eca6a;
+    border-radius: 14%;
+  }
+  .card-description p:hover {
+    font-size: 20px;
+    font-family:  'Arial Narrow Bold', sans-serif;
+   background-color:  #2eca6a;
+    border-radius: 30%;
+  }
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index:2;
+    background: black;
+    opacity: 0;
+  }
+  .card-link:hover{
+    opacity: 0.1;
+  }
+  .features img {
+    width: 100px;
+  }
+  .features h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .features p {
+    font-size: 15px;
+    font-weight: lighter;
+   
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+   
+  }
+  
+  
+   
+
+
+
+
+
+
+
+
+
+
+
+   * {
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  .app {
+    display: flex;
+    min-height: 100vh;
+  }
+  .content{
+    width : 80%;
+  
+  }
+  
+  .content .header{
+  }
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: #2e3047;
+    cursor: pointer;
+  }
+  
+  .hamburger {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+  }
+  
+  .hamburger > span,
+  .hamburger > span::before,
+  .hamburger > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 99px;
+    background-color: #FFF;
+  }
+  
+  .hamburger > span::before {
+    content: '';
+    top: -8px;
+  }
+  .hamburger > span::after {
+    content: '';
+    top: 8px;
+  }
+  .menu-toggle.is-active .hamburger > span {
+    transform: rotate(45deg);
+  }
+  .menu-toggle.is-active .hamburger > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  .menu-toggle.is-active .hamburger > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  .sidebar {
+    flex: 1 1 0;
+    max-width: 300px;
+    padding: 2rem 1rem;
+    background-color:rgb(247, 244, 244);
+    border-right: 1px gray;
+  }
+  
+  
+  
+  .sidebar .menu {
+    margin: 0 -1rem;
+  }
+  
+  .sidebar .menu .menu-item {
+    display: block;
+    padding: 1em;
+    color: #FFF;
+    text-decoration: none;
+  }
+  
+  
+  .sidebar .menu .menu-item.is-active {
+    color: #3bba9c;
+    border-right: 5px solid #3bba9c;
+  }
+  
+  
+  
+  
+  
+  @media (max-width: 1024px) {
+    .sidebar {
+      max-width: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+      .content{
+      
+      }
+      .card{
+        display: flex;
+        background: none;
+        width:100%;
+        align-items:start;
+        
+      }
+      .grid {
+        display: grid;
+        margin-left: 30%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+       
+      }
+    
+    .sidebar {
+      position: relative;
+      top: 0;
+      left: -300px;
+      height: 100vh;
+      width: 100%;
+      max-width: 300px;
+      transition: 0.2s linear;
+    }
+  
+    .sidebar.is-active {
+      left: 0;
+    }
+  }
+
+  label{margin-left: 20px;}
+  #datepicker{width:180px; margin: 0 20px 20px 20px;}
+  #datepicker > span:hover{cursor: pointer;}
+  
+  form label{
+    text-align:center;
+    font-size:15px;
+    color:black;
+    font-weight: 600;
+
+
+
+  }
+
+  form button{
+    background-color : #2eca6a; ;
+    color: #FFF;
+    width: 220px;
+    height: 30px;
+    border-radius: 5%;
+    border: #2eca6a;
+
+
+  }
+
+  .range-input{
+    display : flex ;
+    margin:2px;
+  }
+  .range-input input{
+    width: 90px;
+  }
+ 
+  .range-input .separator{
+     margin: 15px;
+     position: relative;
+     text-align: center;
+     top :5px;
+     font-size:25px;
+  }
+
+
+  #SearchButton[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: all !important;
+  }

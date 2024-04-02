@@ -1,0 +1,38 @@
+<div class="center">
+ <div class="container-md">
+         <form [formGroup]="equipementForm" (ngSubmit)="onSubmit()" >
+                <div>
+                        <button class="btn btn-primary"> suivant</button>
+                </div>
+                <div>
+                  <h2>equipement de base </h2>
+                    
+                  <div class="form-group">
+                       <label for="website">equipement de base :</label>
+                       <div *ngFor="let equipement of equipement_de_base">
+                         <label>
+                           <input type="checkbox" [value]="equipement.name" (change)="onCheckboxChange($event)" />
+                           {{equipement.name}}
+                         </label>
+                       </div>
+                   </div>
+                </div>
+          
+
+                         <div>
+                          <h2>Commodités additionnelles </h2>
+                          <div class="form-group">
+                            <label for="website">equipement :</label>
+                            <div *ngFor="let equipement of Commodite_additionnelle">
+                              <label>
+                                <input type="checkbox" [value]="equipement.name" (change)="onCheckboxChange2($event)" />
+                                {{equipement.name}}
+                              </label>
+                            </div>
+                        </div>
+                                  
+                         </div>
+                     
+         </form>
+ </div>
+</div>

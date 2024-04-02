@@ -1,0 +1,24 @@
+.center{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+form button {
+    position : absolute ;
+    right : 0px
+}
+form label{
+    font-size : 17px ;
+    
+}
+form h2{
+    font-size : 17px;
+    font-weight: bold;
+    font-family : Verdana, Geneva, Tahoma, sans-serif
+}
+form button{
+    position : relative ;
+    top: 30px;
+    left : 350px ;
+}

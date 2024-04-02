@@ -1,0 +1,64 @@
+
+/*
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}*/
+
+.divider-text {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.divider-text span {
+  padding: 7px;
+  font-size: 12px;
+  position: relative;   
+  z-index: 2;
+}
+.divider-text:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  top: 55%;
+  left: 0;
+  z-index: 1;
+}
+
+.btn-facebook {
+  background-color: #405D9D;
+  color: #fff;
+}
+.btn-twitter {
+  background-color: #ec6442;
+  color: #fff;
+}
+input{
+  width: 100px;
+  padding:10px   100px;
+
+
+}
+
+
+button{
+  width: auto;
+  padding: 10px 20px;
+
+
+}
+.alertError{
+  color: rgb(248, 83, 83);
+   margin : 2px 3px ;
+   text-align: center;
+}
+#buttonLogin[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: all !important;
+}

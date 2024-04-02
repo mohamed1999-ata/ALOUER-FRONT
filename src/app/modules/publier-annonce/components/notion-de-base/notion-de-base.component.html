@@ -1,0 +1,62 @@
+<div class="center">
+      <form  [formGroup]="NotionDeBase" (ngSubmit)="onSubmit()">
+            <h4>Les chambres et les lits </h4>
+      <div class="row row-cols-lg-auto g-3 align-items-center" >
+            <div class="col-12">
+                  <label for="inputAddress" class="form-label">Chambres</label>
+                  <select class="form-select" id="inlineFormSelectPref" formControlName="nombre_de_chambre">
+                        <option selectedvalue="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Lits</label>
+                  <select class="form-select" id="inlineFormSelectPref" formControlName="nombre_de_lits">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                        <option value="6">6</option>
+                      </select>
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Salle de bain</label>
+                  <select class="form-select" id="inlineFormSelectPref" formControlName="salle_de_bain">
+                        <option selectedvalue="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!NotionDeBase.valid"> suivant</button>
+
+           
+      </div>
+            
+            
+            <hr>  
+            
+            <h4>Logement </h4>
+      <div class="row row-cols-lg-auto g-3 m-10 align-items-center" >
+            <div class="col-md-3">
+                  <label for="inputAddress" class="form-label">surface m2 </label>
+                 <input type="text" class="form-control" formControlName="surface">
+                </div>  
+            <div class="col-md-3">
+                  <label for="inputAddress" class="form-label">Prix de la nuitée  (DT)</label>
+                 <input type="text" class="form-control" formControlName="prix">
+                </div>  
+           
+      </div>
+
+        
+              
+     
+              
+          </form>
+</div>

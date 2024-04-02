@@ -1,0 +1,204 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+</head>
+<body>
+  <br>
+  <br>
+  
+	<div class="app">
+		<div class="menu-toggle" (click)="navClick()" >
+			<div class="hamburger">
+				<span></span>
+			</div>
+		</div>
+
+		<aside class="sidebar">
+      <br>     
+		<nav>
+      <h1 style="text-align: center ;
+        font-weight:bold;
+        font-size:28px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-family:Arial, Helvetica, sans-serif;
+        ">Filtrer Par</h1>
+      <form [formGroup]="searchForm" (ngSubmit)="filtreAnnonces()">
+        <label> Date Depart: </label>
+        <div id="datepicker" class="input-group date" >
+            <input class="form-control" type="date"   min="{{dateMin}}" formControlName="depart" />
+            <span class="input-group-addon"></span>
+        </div>
+        <label> Date Arriver: </label>
+        <div id="datepicker" class="input-group date" >
+            <input class="form-control" type="date"  min="{{dateMin}}" formControlName="arriver"  />
+            <span class="input-group-addon"></span>
+        </div>
+        <label> gouvernorat: </label>
+        <div id="datepicker" class="input-group date" >
+          <select class="villeselect"  class="form-control" formControlName="ville" >
+            <option value="nabeul">Nabeul</option>
+            <option value="mednin">Zaghouan</option>
+            <option value="tunis">Tunis</option>
+            <option value="ariana">Ariana</option>
+            <option value="ben arous">Ben Arous</option>
+            <option value="bizerte">Bizerte</option>
+            <option value="beja">Beja</option>
+            <option value="jendouba">Jendouba</option>
+            <option value="sousse">sousse</option>
+            <option value="sfax"> Sfax</option>
+            <option value="monastir">monastir</option>
+            <option value="touzer">mahdia</option>
+            <option value="tataouin">monastir</option>
+            </select>	
+        </div>
+        <label> type de Logmenet: </label>
+        <div id="datepicker" class="input-group date" >
+          <select id="sel3" class="form-control"  formControlName="type">
+            <option value="Apartement">Apartement</option>
+            <option value="Maision">Maision</option>
+            <option value="hotel">hotel</option>
+            <option value="Maison ou chambre d'hôtes"> Maison ou chambre d'hôtes </option>
+
+            <option value="Ferme">Ferme</option>
+            <option value="Villa">Villa</option>
+          
+            
+        </select>
+        </div>
+       
+   <label>Prix</label>
+        <div class="range-input">
+          <div class="range">
+             <span>Min</span>
+            <input type="number" class="form-control" formControlName="prixMin" >
+          </div>
+          <div class="separator">
+             -
+          </div>
+          <div class="range">
+            <span>Max</span>
+             <input type="number"  class="form-control" formControlName="prixMax" >
+          </div>
+        </div>
+       
+
+         <div class="text-center m-10" style="margin: 10px; ">
+           <button type="submit" id="SearchButton" [disabled]="!searchForm.valid" >Filtrer</button>
+         </div>
+
+      </form>
+    </nav>
+
+		</aside>
+		<main class="content">
+      
+			<div >
+        <br>
+    <div class="wrapper">
+        <div class="container">
+          
+          
+    <div class="grid"  >
+        <div *ngFor="let annonce of result | paginate: { itemsPerPage: 6,
+          currentPage: page,
+          totalItems :totalLength
+           }" >
+            <div  >
+           
+             
+                       <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://localhost:5000/annonce/{{annonce?.annonceImage[0]}}');">
+                  <div class="card-category"> <span class="fa fa-map-marker"></span>   {{annonce?.logement.ville}}</div>
+                  <div class="card-description">
+                    <ul>
+                        <li><span class="fa fa-bed"></span> {{annonce?.logement.capacite}}</li>
+                        <li><span class="fa fa-bath"></span> {{annonce?.logement.salle_de_bain}} Baths</li>
+                        <li><span class="fa fa-rooms"></span> {{annonce?.logement.nombre_de_chambre}} Baths</li>
+                    </ul>
+                    
+                    <p >{{annonce?.prix}} DT/nuit</p>
+                  </div>
+                  <img class="card-user avatar avatar-large" src="http://localhost:5000/user/{{annonce.propritaire.ProfilImage}}">
+                  
+                  <a class="card-link" href="annonce/{{annonce._id}}" ></a>
+                </div>
+      
+             
+              </div>
+
+            </div>
+           </div>
+          </div>
+          
+    
+        </div>
+    
+</div>
+<div *ngIf="show1">
+  <p style="text-align:center; font-size:30px;
+   margin-top:20px;
+  ">
+    Aucun résultat trouvé    </p><br>
+    <p> - de {{totalLength}} Logements</p>
+</div>
+
+   <!-- result1 start -->
+    <div>
+      
+    <div class="wrapper">
+        <div class="container">
+         
+    
+     <div class="grid"  >
+        <div *ngFor="let annonce of result1 | paginate: { itemsPerPage: 6,
+          currentPage: page,
+          totalItems :totalLength
+           }" >
+            <div  >
+           
+                       <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://localhost:5000/annonce/{{annonce?.annonceImage[0]}}');">
+                  <div class="card-category"> <span class="fa fa-map-marker"></span>   {{annonce?.logement[0].ville}}</div>
+                  <div class="card-description">
+                    <ul>
+                        <li><span class="fa fa-bed"></span> {{annonce?.logement[0].capacite}}</li>
+                        <li><span class="fa fa-bath"></span> {{annonce?.logement[0].salle_de_bain}} Baths</li>
+                        <li><span class="fa fa-rooms"></span> {{annonce?.logement[0].nombre_de_chambre}} Baths</li>
+                    </ul>
+                    
+                    <p >{{annonce?.prix}} DT/nuit</p>
+                  </div>
+                  <img class="card-user avatar avatar-large" src="http://localhost:5000/user/{{annonce.propritaire[0].ProfilImage}}">
+                  
+                  <a class="card-link" href="annonce/{{annonce._id}}" ></a>
+                </div>
+             
+              </div>
+            </div>
+           </div> 
+          </div>
+
+    
+        </div>
+    
+  </div>  
+   <!-- result1 end -->
+
+
+		</main>
+	</div>
+
+	
+</body>
+</html>
+
+
+
+
+
+ 

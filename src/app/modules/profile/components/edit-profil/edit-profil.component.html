@@ -1,0 +1,65 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<div>
+    <div>
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <form   #myForm="ngForm"  (ngSubmit)="EditUSer(myForm.value)" >
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <form [formGroup]="profilForm" >
+                    <label>
+                        <img class="rounded-circle mt-5" width="150px" src="http://localhost:5000/user/{{photoUrl?.value}}">
+                        <input type="file" formControlName="myImage"  name="myImage" (change)="uploadeImage($event)"  style="display : none" >
+                    </label>
+                </form>
+                <span class="font-weight-bold">{{userInfo?.lastName}}</span>
+                <span class="text-black-100">{{userInfo?.email}}</span>
+                <span> </span>
+            </div>
+            
+        </div>
+       
+        <div class="col-md-5 border-right">
+            
+            <div class="p-3 py-5">
+                
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 >Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">
+                            <p>votre Nom</p> 
+                        </label>
+                        <input type="text" class="form-control" name="firstName" placeholder=" votre prenom" *ngIf="userInfo" [(ngModel)]="userInfo.firstName">
+                    </div>
+                    <div class="col-md-6"><label class="labels"><p> votre Prenom</p></label><input type="text" class="form-control" name="lastName" placeholder=" votre prenom" *ngIf="userInfo" [(ngModel)]="userInfo.lastName"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels"><p>Address Email</p></label><input type="text" class="form-control" name="email" placeholder=" votre email" *ngIf="userInfo" [(ngModel)]="userInfo.email"></div>
+                    <div class="col-md-12"><label class="labels"><p>numero de telephone</p></label><input type="text" class="form-control" name="numeroTelephone" placeholder=" votre Numero de telephone" *ngIf="userInfo" [(ngModel)]="userInfo.numeroTelephone"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels"><p>Ville/region</p> </label><input type="text" class="form-control" name="ville" placeholder=" ville"  *ngIf="userInfo" [(ngModel)]="userInfo.ville"></div>
+                    <div class="col-md-6"><label class="labels"><p>Address</p></label><input type="text" class="form-control" name="adresse" placeholder=" adresse"  *ngIf="userInfo" [(ngModel)]="userInfo.adresse"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"><span></span>
+                     <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                </div><br>
+            </div>
+        </div>
+      
+    </div>
+   </form>
+</div>
+</div>
+</div>

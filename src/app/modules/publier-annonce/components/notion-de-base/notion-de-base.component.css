@@ -1,0 +1,25 @@
+.center{
+    position :absolute ;
+    top : 30% ;
+    left : 20% ;
+}
+
+.form-select{
+    padding: 10px 100px;
+}
+
+form label{
+    font-size : 17px ;
+    
+}
+
+form h4 {
+    font-size : 17px;
+    font-weight: bold;
+    font-family : Verdana, Geneva, Tahoma, sans-serif
+}
+form button{
+    position : relative ;
+    top : 12px;
+    left : 20px;
+}

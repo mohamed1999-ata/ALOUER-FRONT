@@ -1,0 +1,110 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+<div clas="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	<p>
+		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-google"></i>   Login via google</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+	</p>
+	<p class="divider-text">
+        <span class="bg-light">OR</span>
+    </p>
+	<form [formGroup]="registerForm"  (ngSubmit)="onSubmit(registerForm)">
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+       <input  name="" class="form-control"  formControlName="firstName" placeholder="prénom" type="text"    [ngClass]="{ 'is-valid' : registerForm.get('firstName').valid  }">
+       <div *ngIf="!registerForm.get('firstName').valid && (registerForm.get('firstName').dirty ||  registerForm.get('firstName').touched ) ">
+        <div [hidden]="!registerForm.get('firstName').errors.required " class="alertError">
+          firstName mus be required
+        </div>
+        <div [hidden]="!registerForm.get('firstName').errors.pattern " class="alertError">
+          firstName invalid only  caracter 
+       </div>
+
+       </div>
+      </div> 
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control"  formControlName="lastName" placeholder="nom" type="text"  [ngClass]="{ 'is-valid' : registerForm.get('lastName').valid  }">
+        <div *ngIf="!registerForm.get('lastName').valid && (registerForm.get('lastName').dirty ||  registerForm.get('lastName').touched )">
+          <div [hidden]="!registerForm('lastName').errors.required " class="alertError">
+            lastName is required
+          </div>
+          
+        </div>
+      </div> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+       <input name="" class="form-control"   formControlName="email" placeholder="Adress email" type="email"  [ngClass]="{ 'is-valid' : registerForm.get('email').valid  }">
+       <div *ngIf="!registerForm.get('email').valid && (registerForm.get('email').dirty ||  registerForm.get('email').touched )">
+        <div [hidden]="!registerForm.get('email').errors.required " class="alertError">
+          email must be required
+        </div>
+        <div [hidden]="!registerForm.get('email').errors.email  "  class="alertError">
+          email invalid email adress 
+       </div>
+       <p class="alertError" *ngIf="registerForm.get('email').errors.existingEmail">
+        Email already exists.
+      </p>
+       </div>
+      </div> 
+ 
+    
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control"  formControlName="password" minlength="8" placeholder="mot de passe " type="password" [ngClass]="{ 'is-valid' : registerForm.get('password').valid  }" >
+        <div *ngIf="registerForm.get('password').valid &&  (registerForm.get('password').dirty ||  registerForm.get('password').touched )">
+          <div [hidden]="!registerForm.get('password').errors?.required "  class="alertError">
+            password must be required
+          </div>
+          <div [hidden]="!registerForm.get('password').errors?.minLength "  class="alertError">
+            password invalid minlength 8
+         </div>
+  
+         </div>
+      </div> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control"  formControlName="confirmPassword"  placeholder="Répéter le mot de passe" type="password" [ngClass]="{ 'is-valid' : registerForm.get('confirmPassword').valid  }">
+       
+        <div *ngIf="!registerForm.get('confirmPassword').valid && registerForm.get('confirmPassword').dirty">
+          <div [hidden]="!registerForm.get('confirmPassword').errors.required"  class="alertError">
+            confirmPassword must be required
+          </div>
+          <div [hidden]="!registerForm.get('confirmPassword').errors.match()"  class="alertError">
+            error invalid confirm Password
+         </div>
+  
+         </div>
+      </div>                                       
+    <div class="form-group" align="center">
+        <button type="submit" class="btn btn-primary btn-block"  id="buttonLogin" [disabled]="registerForm.invalid" > créer un compte  </button>
+    </div>       
+    <p class="text-center">Vous avez un compte ? <a href="auth/login">S'identifier</a> </p>                                                                 
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div> 
+
+

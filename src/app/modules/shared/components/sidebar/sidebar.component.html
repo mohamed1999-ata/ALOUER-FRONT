@@ -1,0 +1,64 @@
+<br>
+<br>
+<br>
+<div >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="publier-votre-anonnce/notion-de-base" routerLinkActive="active-Link" >
+          <p class="routeTitle">
+            <i class="fa fa-home"></i>  Notions de base  
+          </p>
+        </a>
+        <a mat-list-item routerLink="publier-votre-anonnce/description"  routerLinkActive="active-Link" >
+          <p  class="routeTitle">
+            <i class="fa fa-file"></i> Description  
+           </p>
+          </a>
+        <a mat-list-item routerLink="publier-votre-anonnce/equipement"  routerLinkActive="active-Link" >
+          <p  class="routeTitle">
+            <i class="fa fa-plus"></i> Equipement de base
+              </p>
+             </a>
+        <a mat-list-item routerLink="publier-votre-anonnce/emplacement"  routerLinkActive="active-Link" >
+          <p  class="routeTitle">
+            <i class="fa fa-map-marker"></i> Emplacement 
+            </p>
+          </a>
+        <a mat-list-item routerLink="publier-votre-anonnce/photo"  routerLinkActive="active-Link" >
+          <p  class="routeTitle">
+            <i class="fa fa-images"></i> Photos  
+           </p>
+          </a>
+        <a mat-list-item routerLink="publier-votre-anonnce/agenda"  routerLinkActive="active-Link" >
+          <p class="routeTitle">
+             <i class="fa fa-calendar-check"></i> Calendrier  
+            </p>
+          </a>
+
+
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="gray">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon"><i class="fa fa-home"></i></mat-icon>
+        </button>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+</div>

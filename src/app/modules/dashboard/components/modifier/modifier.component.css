@@ -1,0 +1,143 @@
+.logment-form{
+    display: flex;
+    justify-content: space-around;
+}
+.logment-form select{
+    width : 200px ;
+   
+}
+.logment-form button{
+    width : 100px ;
+    height : 40px ;
+    margin-top: 20px;
+    background-color: #2eca6a;
+    border-color: #2eca6a;
+   
+}
+.logment-form label{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+
+.notion-de-base-form .notion1 {
+    display : flex ;
+    justify-content: space-around;
+}
+.notion1{
+     display : flex ;
+     justify-content: space-around;
+    margin: 10px;
+}
+.notion1 select{
+    width : 200px ;
+
+
+}
+
+.notion-de-base-form .notion3 {
+    display : block ;
+    justify-content: space-around;
+}
+.notion3{
+     display : flex ;
+     justify-content: space-around;
+    margin-left: 10%;
+}
+.notion3 input{
+    width : 350px ;
+
+
+}
+.notion3 textarea{
+    width : 350px ;
+    height: 80px;
+}
+.btn-desc{
+    position: absolute;
+    right: 40px;
+    justify-content: space-between;
+}
+
+.equipement-form {
+    display : flex;
+    justify-content: space-around;
+}
+.equipement-form button{   
+    position: absolute;
+    top :10px;
+    display : flex;
+}
+
+.empalacement-form input{
+ width : 350px;
+ margin : 10px;
+
+}
+.btn-emplacement{
+    position: absolute;
+    right : 10% ;
+    top : 40px ;
+    width: 100px;
+    height: 40px;
+    color: #FFF;
+    background-color: #2eca6a;
+    border-color: #2eca6a;
+    border-radius: 5%;
+}
+.btn-equipement{
+    position: relative;
+    right : 10% ;
+    top : 40px ;
+    width: 100px;
+    height: 40px;
+    color: #FFF;
+    background-color: #2eca6a;
+    border-color: #2eca6a;
+    border-radius: 5%;
+    text-align: center; 
+}
+.btn-equipement p {
+    margin-left: 20px;
+    margin-top : 6px;
+}
+.notion-base-form{
+    position: absolute;
+    right : 10% ;
+    top : 0 ;
+    width: 100px;
+    height: 40px;
+    color: #FFF;
+    background-color: #2eca6a;
+    border-color: #2eca6a;
+    border-radius: 5%;
+    text-align: center; 
+
+}
+
+.btn-photo{
+    position: relative;
+    right : 10% ;
+    top : 0 ;
+    width: 100px;
+    height: 40px;
+    color: #FFF;
+    background-color: #2eca6a;
+    border-color: #2eca6a;
+    border-radius: 5%;
+    text-align: center; 
+
+}
+.btn-agenda{
+    width: 100px;
+    height: 40px;
+    color: #FFF;
+    background-color: #2eca6a;
+    border-color: #2eca6a;
+    border-radius: 5%;
+    text-align: center; 
+    margin-top: 15px;  
+}
+
+

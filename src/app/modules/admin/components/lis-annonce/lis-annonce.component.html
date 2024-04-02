@@ -1,0 +1,113 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Descreption de annonces</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{Descreption}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>titre de l'annonce</th>
+            <th>description de l'annonce</th>
+            <th>prix</th>
+            <th>propritaire de l'annonce</th>
+            <th>ville</th>
+            <th>Image</th>
+            <th>Etat de l'annonce</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let annonce of annonces | paginate: { itemsPerPage: 4,
+          currentPage: page,
+          totalItems :totalLength
+           }" >
+          <td>{{annonce?.titre}}</td>
+          <td>
+              <button type="button" (click)="getData(annonce?.descreption)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  detail
+                </button>
+          </td>
+          <td>{{annonce?.prix}}</td>
+          <td>{{annonce?.propritaire.lastName}}</td>
+          <td>{{annonce?.logement.ville}}</td>
+          <td (click)="showImage(annonce?.annonceImage)" 
+          data-bs-toggle="modal" 
+          data-bs-target="#exampleModal2">
+              <img  
+              style="height: 80px; width: 130px;" 
+              src="http://localhost:5000/annonce/{{annonce?.annonceImage[0]}}"
+              
+              >
+          </td>
+          <td >
+              <button class="btn btn-primary" (click)="acceptAnnonce(annonce?._id ,annonce?.propritaire.email)">Accepter</button>
+              <button class="btn btn-danger" (click)="supprimerAnnonce(annonce?._id)">Supprimer</button>
+          </td>
+        </tr>
+       
+    </tbody>
+ 
+</table>
+<div *ngIf="annonce">
+  <pagination-controls   align="center"  (pageChange)="pageChangeEvent($event)" ></pagination-controls>
+
+</div>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img *ngIf="images" src="http://localhost:5000/annonce/{{images[0]}}" class="d-block w-100 " alt="..." style="width:500px ; height: 400px">
+            </div>
+            <div class="carousel-item">
+              <img  *ngIf="images" src="http://localhost:5000/annonce/{{images[1]}}" class="d-block w-100" alt="..." style="width:500px ; height: 400px">
+            </div>
+            <div class="carousel-item">
+              <img *ngIf="images"  src="http://localhost:5000/annonce/{{images[2]}}" class="d-block w-100 " alt="..." style="width:500px ; height: 400px">
+            </div>
+            <div class="carousel-item">
+              <img *ngIf="images" src="http://localhost:5000/annonce/{{images[3]}}" class="d-block w-100 " alt="..." style="width:500px ; height: 400px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</div> 

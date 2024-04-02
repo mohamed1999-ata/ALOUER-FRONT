@@ -1,0 +1,25 @@
+<div class="center">
+  <div class="container-md">
+    
+    <form class="row g-3"  [formGroup]="descForm" (ngSubmit)="onSubmit()">
+     
+      <div class="col-12">
+        <label for="inputAddress" class="form-label" >Titre de l'annonce</label>
+        <input type="text" class="form-control" id="inputAddress"  formControlName="titre_annonce">
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label">Description  de l'annonce</label>
+        <textarea class="form-control" formControlName="description" ></textarea>
+      </div>
+    
+     
+    
+     
+      <div >
+        <button type="submit" class="btn btn-primary" [disabled]="!descForm.valid">suivant</button>
+      </div>
+    </form>
+  </div>
+  
+</div>
+

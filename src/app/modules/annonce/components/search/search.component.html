@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Search</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+	<section class="form-12" id="home">
+		<div class="form-12-content">
+			<div class="container">
+				<div class="grid grid-column-2 ">
+					<div class="column2">
+						</div>
+					<div class="column1">
+						
+						
+							<form [formGroup]="searchForm" (ngSubmit)="onsubmit()" >
+								<div class="blog-search form d-flex search-form" >
+									<select  class="villeselect"  formControlName="ville" aria-label="Default select example">
+										<option value=""  selected>Tapez votre recherche ici</option>
+										<option value="nabeul">Nabeul</option>
+										<option value="mednin">Zaghouan</option>
+										<option value="tunis">Tunis</option>
+										<option value="ariana">Ariana</option>
+										<option value="ben arous">Ben Arous</option>
+										<option value="bizerte">Bizerte</option>
+										<option value="beja">Beja</option>
+										<option value="jendouba">Jendouba</option>
+										<option value="sousse">sousse</option>
+										<option value="sfax"> Sfax</option>
+										<option value="monastir">monastir</option>
+										<option value="touzer">mahdia</option>
+										<option value="tataouin">monastir</option>
+									  </select>	
+									<button type="submit" id="btn-s"  style="margin-top: 10px;" class="btn search-btn"><span class="fa fa-search"></span></button>
+								</div>
+								<div class="form-top">
+									<label for="#depart"> Depart <input  class="datepicker_input form-control"type="date" formControlName="depart" name="" id="depart"> </label>
+									<label for="#arriver"> Arriver <input  class="datepicker_input form-control" type="date"  formControlName="arriver" name="" id="arriver"></label>
+									
+									
+								</div>
+								
+								<div class="form-top">
+									<select id="sel3" formControlName="type">
+											<option   value=""  >type de logement</option>
+											<option  value="Apartement">Apartement</option>
+											<option  selected value="Maision">Maision</option>
+											<option value="hotel">hotel</option>
+											<option value="Maison ou chambre d'hôtes">
+												Maison ou chambre d'hôtes
+											  </option>
+											<option value="Ferme">Ferme</option>
+											<option value="Villa">Villa</option>
+											
+											
+									</select>
+									
+							
+								</div>
+							
+								
+								<button type="submit" class="btn" id="sub-btn">Chercher</button>
+							</form>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+

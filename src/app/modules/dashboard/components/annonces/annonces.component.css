@@ -1,0 +1,80 @@
+@media (max-width = 696px) {
+  table {
+    width: 100%;
+  }
+}
+
+.modifier button {
+  margin: 5px;
+}
+.container-small {
+  width: 80%;
+  margin-left: 20%;
+}
+
+nav {
+  position: fixed;
+  top: 22%;
+  left: 1%;
+}
+nav ul li {
+  margin: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  list-style: none;
+}
+nav ul li a:visited {
+  color: #2eca6a;
+}
+
+.modal-dialog {
+  margin-top: 10%;
+}
+
+.modal-body h1 {
+  text-align: center;
+  font-weight: bold;
+}
+.modal-body {
+  text-align: center;
+  font-size: 18px;
+}
+.modal-footer button {
+  position: relative;
+  left: -25%;
+}
+.box-search input {
+  margin: 10px;
+  left: 35px;
+  width: 220px;
+  height: auto;
+}
+
+/*  mat css*/
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+/* icon modal */
+
+.icon-modal {
+  position: relative;
+  left: 80%;
+  right: 0px;
+}
+
+
+.modal-modifier {
+  position: relative;
+  left: 10%;
+}

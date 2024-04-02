@@ -1,0 +1,270 @@
+<mat-stepper orientation="vertical">
+    <mat-step>
+      <ng-template matStepLabel>Logement</ng-template>
+      <ng-template matStepContent>
+          <form  #logementForm="ngForm"  class="logment-form"  (ngSubmit)="saveLogement(logementForm.value)" >
+       
+           
+            <div class="form-group " >
+              <label for="inputState">type de logement</label>
+              <select id="inputState" *ngIf="annonce" class="form-control" name="type_logement" [(ngModel)]="annonce?.logement.type">
+                <option selected>Choose...</option>
+                <option  value="Apartement">Apartement</option>
+            <option value="Maision">Maision</option>
+
+
+            <option
+              data-name="Maison ou chambre d'hôtes"
+              
+            >
+              Maison ou chambre d'hôtes
+            </option>
+
+
+            <option data-name="Bungalow">Bungalow</option>
+            <option data-name="Ferme">Ferme</option>
+            <option data-name="Villa">Villa</option>
+              </select>
+            </div>
+            
+         
+            <div class="form-group ">
+                <label for="inputState">type de chambre </label>
+                <select id="inputState" class="form-control" name="type_chambre" [(ngModel)]="annonce?.logement.type_chambre">
+                  <option >Choose...</option>
+                  <option value="Chambre privée">Chambre privée </option>
+                  <option value="Chambre partagée">Chambre partagée</option>
+                  <option value="Longement entier">Longement entier</option>
+              
+                </select>
+              </div>
+              <div class="form-group ">
+                <label for="inputState">Capacite d'accueil
+                </label>
+                <select id="inputState" class="form-control" *ngIf="annonce" name="capacite" [(ngModel)]="annonce?.logement.capacite">
+                  <option value="1" > 1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="8+">8+</option>
+                </select>
+              </div>
+           
+         
+
+         <button  class="btn btn-success"  type="submit" mat-button matStepperNext>suivant</button>
+         
+            </form>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel> Notion de base / Description </ng-template>
+      <ng-template matStepContent>
+        <form  #NotionDeBase="ngForm" class="notion-de-base-form" (ngSubmit)="saveNotionbaseAndDescrption(NotionDeBase.value)" >
+        <h3>Les chambres et les lits</h3> <br>
+          <div class="notion1"> 
+          <div class="form-group " >
+            <label for="inputState">Chambres</label>
+            <select id="inputState" *ngIf="annonce" class="form-control" name="nombre_de_chambre" [(ngModel)]="annonce?.logement.nombre_de_chambre">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7+">7+</option>
+      
+            </select>
+          </div>
+          
+       
+          <div class="form-group ">
+              <label for="inputState">nombre de lits </label>
+              <select id="inputState" class="form-control" name="nombre_de_lits" [(ngModel)]="annonce?.logement.nombre_de_lits">
+                <option value="1" > 1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>                
+                <option value="4">4</option>                
+                <option value="5">5</option>                
+            
+              </select>
+            </div>
+            <div class="form-group ">
+              <label for="inputState">Salle de bain
+              </label>
+              <select id="inputState" class="form-control" *ngIf="annonce" name="salle_de_bain" [(ngModel)]="annonce?.logement.salle_de_bain">
+                <option value="1" > 1</option>
+                <option value="2">2</option>
+                <option value="3+">3+</option>
+       
+                
+              </select>
+            </div>
+          </div>
+  
+          <h3>Description</h3><br>
+          <div class="notion3">
+            <div >
+                  <label for="inputAddress" class="form-label" >Titre de l'annonce</label>
+                  <input type="text" class="form-control" id="inputAddress"  *ngIf="annonce" name="titre_annonce" [(ngModel)]="annonce.titre" >
+             
+               
+                  <label for="inputAddress2" class="form-label">Description  de l'annonce</label>
+                  <textarea class="form-control"  *ngIf="annonce" name="description" [(ngModel)]="annonce.descreption" ></textarea>
+            </div>
+            <div class="btn-desc">
+              <button  class="notion-base-form" 
+              type="submit" mat-button matStepperNext>suivant</button> 
+            </div>
+          </div>
+         
+ 
+          </form>
+  
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Equipement</ng-template>
+      <form    class="equipement-form"  (ngSubmit)="saveEquipement()"  >
+       
+     
+   <div class="form-group" >
+        <label for="website"><h3>equipement de base :</h3></label>
+        <div *ngFor="let equipement of equipement_de_base trackBy:trackByIdx "  >
+          <label>
+            <input type="checkbox" [value]="equipement.name" (change)="onCheckboxChange($event)" />
+            {{equipement.name}}
+          </label>
+        </div>
+    </div>
+              <div class="form-group">
+                <label for="website"><h3>Commodités additionnelles </h3></label>
+                <div *ngFor="let equipement of Commodite_additionnelle">
+                  <label>
+                    <input type="checkbox" [value]="equipement.name"  (change)="onCheckboxChange2($event)" />
+                    {{equipement.name}}
+                  </label>
+                </div>
+            </div>
+           
+            <div>
+            </div>
+            <button class="btn-equipement" type="submit" mat-button matStepperNext><p>suivant</p></button>        
+
+ </form>
+     
+
+    </mat-step>
+  
+    <mat-step>
+        <ng-template matStepLabel>Emplacement</ng-template>
+        <form class="empalacement-form"   #emplacementForm="ngForm"  (ngSubmit)="saveEmplacement(emplacementForm.value)" >
+     <div style="display: flex; ">
+      <div class="col-md-6">
+        <label for="inputAddress" class="form-label">gouvernorat</label>
+        <input type="text" class="form-control" id="inputAddress"
+        *ngIf="annonce" name="gouvernorat" [(ngModel)]="annonce?.logement.gouvernorat"  >
+      </div>
+      <div class="col-md-2">
+        <label for="inputAddress2" class="form-label">délégation</label>
+        <input type="text" class="form-control" id="inputAddress2"
+        *ngIf="annonce" name="ville" [(ngModel)]="annonce?.logement.ville"  >
+      </div>
+     </div>
+         <div style="display: flex; ">
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label" >adress</label>
+            <input type="text" class="form-control" id="inputCity" 
+            *ngIf="annonce" name="adress" [(ngModel)]="annonce?.logement.adress">
+          </div>
+         
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">CodePostal</label>
+            <input type="text" class="form-control" id="inputZip" 
+            *ngIf="annonce" name="codePostal" [(ngModel)]="annonce?.logement.codePostal">
+          </div>
+         </div>
+         
+         <button   class="btn-emplacement" mat-button matStepperNext>suivant</button>
+
+
+        </form>
+      </mat-step>
+    
+      <mat-step>
+        <ng-template matStepLabel>Calendrier</ng-template>
+        <form  #agendaForm="ngForm"  (ngSubmit)="saveCalendar(agendaForm.value)" style="display : flex ;  justify-content : space-around ">
+       
+             
+            <div class="col-md-2">
+              <label for="depart">Depart</label><br />
+              <input
+                type="date"
+                min="{{ dateMin }}"
+                *ngIf="annonce" name="start" [(ngModel)]="DateDepart"
+                class="form-control"
+                id="depart"
+              />
+            </div>
+            <div class="col-md-2" >
+              <label for="arriver">Arriver</label><br />
+              <input
+                type="date"
+                class="form-control"
+                *ngIf="annonce" name="end" [(ngModel)]="DateArriver"
+                min="{{ dateMin }}"
+                id="arriver"
+              />
+            </div>
+            <div class="col-md-2">
+            <label for="prix">Prix/jour</label>
+            <div>
+              <input
+                type="number"
+                class="form-control"
+                *ngIf="annonce" name="price" [(ngModel)]="annonce?.disponibilte[0].price"
+                id="prix"
+              />
+            </div>
+            </div>
+            <button type="submit" class="btn-agenda"  matStepperNext >
+              suivant
+            </button>
+         
+        </form> 
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel> Photo</ng-template>
+        <div class="container-fluid">
+          <form [formGroup]="photoForm" (ngSubmit)="uploadFiles()">
+          
+         
+         <div class="row">
+           <div class="col-8">
+             <label class="btn btn-default p-0">
+               <input type="file"  formControlName="annonceImage" accept="image/*" multiple (change)="selectFiles($event)" />
+             </label>
+           </div>
+           <div class="col-4">
+             <button
+               class="btn-photo"
+               [disabled]="!selectedFiles"
+               type="submit"
+               mat-button matStepperNext
+             >
+             confirmer
+             </button>
+           </div>
+         </div>
+         
+        
+         
+         </form>
+         </div>
+      </mat-step>
+  </mat-stepper>
+  
